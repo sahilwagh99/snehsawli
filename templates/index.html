@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Shankar Maharaj Seva Mandal, Chinchwad | Old Age Home, Education & Environmental Conservation</title>
+    <meta name="description"
+        content="Shri Shankar Maharaj Seva Mandal, Chinchwad runs Sneh Sawli Aaple Ghar old age home, education programs for underprivileged children, blood donation camps, eco-friendly Ganpati murtis (Murti Aamchi Kimmat Tumchi), and scrap collection drives.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Shri Shankar Maharaj Seva Mandal Logo"
+                class="logo-img">
+            <h1 class="logo-text" id="ngoName" data-t="ngoName">Shri Shankar Maharaj Seva Mandal, Chinchwad</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home" data-t="nav_home">Home</a></li>
+                <li><a href="#mission" data-t="nav_mission">Mission</a></li>
+                <li><a href="#services" data-t="nav_initiatives">Initiatives</a></li>
+                <li><a href="#ganpati" data-t="nav_murti">Murti Aamchi</a></li>
+                <li><a href="#contact" data-t="nav_contact">Contact</a></li>
+                <li class="lang-toggle-container">
+                    <button id="langToggle" class="btn btn-outline"
+                        style="padding: 0.3rem 0.6rem; font-size: 0.75rem;">EN</button>
+                </li>
+                <li><a href="{{ url_for('admin') }}" class="btn btn-primary"
+                        style="padding:0.45rem 1.2rem; font-size:0.8rem;" data-t="nav_admin">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Wrapper: Sidebar + Main -->
+    <div class="page-wrapper">
+
+        <!-- LEFT SIDEBAR — Compact Calendar -->
+        <aside class="sidebar">
+            <div class="mini-calendar">
+                <div class="mini-cal-header">
+                    <h4 id="miniMonthYear">March 2026</h4>
+                    <div class="mini-cal-nav">
+                        <button id="prevMonth">‹</button>
+                        <button id="nextMonth">›</button>
+                    </div>
+                </div>
+                <div class="mini-cal-grid" id="miniCalGrid"></div>
+            </div>
+
+            <div class="upcoming-section">
+                <h4 data-t="sidebar_upcoming">📅 Upcoming</h4>
+                <div id="upcomingList"></div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- Hero -->
+            <section id="home" class="hero">
+                <div class="hero-bg">
+                    <img src="{{ url_for('static', filename='images/hero-bg.jpg') }}" alt="Sneh Sawli NGO">
+                </div>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="hero-badge">🙏 <span data-t="ngoName">Shri Shankar Maharaj Seva Mandal, Chinchwad</span>
+                    </div>
+                    <h1 data-t="hero_h1">Caring for Elders, Educating Youth, Protecting Nature</h1>
+                    <p data-t="hero_p">We run <strong>Sneh Sawli Aaple Ghar</strong> old age home, fund education for
+                        underprivileged
+                        children, and lead environmental conservation through community action.</p>
+                    <div class="hero-btns">
+                        <a href="#mission" class="btn btn-primary" data-t="hero_btn_mission">Our Mission</a>
+                        <a href="#contact" class="btn btn-outline" data-t="hero_btn_contact">Get in Touch</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission Section -->
+            <section id="mission" class="section mission-section">
+                <div class="section-header">
+                    <div class="section-label" data-t="section_mission_label">Our Mission</div>
+                    <h2 data-t="section_mission_title">Three Pillars of Service</h2>
+                    <p data-t="section_mission_desc">Shri Shankar Maharaj Seva Mandal, Chinchwad works across three core
+                        areas — elder care, child education, and
+                        environmental conservation — to build a better world.</p>
+                </div>
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon"><i data-lucide="home"></i></div>
+                        <h3 data-t="mission_card1_h3">Sneh Sawli Aaple Ghar</h3>
+                        <p data-t="mission_card1_p">Our flagship old age home — a true family for abandoned and lonely
+                            elders. We provide 24/7
+                            care, nutritious meals, health checkups, and a vibrant community full of warmth.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon"><i data-lucide="graduation-cap"></i></div>
+                        <h3 data-t="mission_card2_h3">Education for All</h3>
+                        <p data-t="mission_card2_p">We support underprivileged children with school fees, books, and
+                            mentoring — because every
+                            child deserves the chance to learn, dream, and grow regardless of their background.</p>
+                    </div>
+                    <div class="mission-card">
+                        <div class="mission-icon"><i data-lucide="leaf"></i></div>
+                        <h3 data-t="mission_card3_h3">Environmental Conservation</h3>
+                        <p data-t="mission_card3_p">From blood donation camps to eco-friendly Ganpati murtis and scrap
+                            collection drives — we
+                            protect both lives and nature through community-driven initiatives.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Initiatives / Services -->
+            <section id="services" class="section">
+                <div class="section-header">
+                    <div class="section-label" data-t="section_initiatives_label">Our Initiatives</div>
+                    <h2 data-t="section_initiatives_title">How We Serve the Community</h2>
+                    <p data-t="section_initiatives_desc">Every initiative under Shri Shankar Maharaj Seva Mandal,
+                        Chinchwad is powered by compassion and community
+                        generosity.</p>
+                </div>
+                <div class="initiatives-carousel">
+                    <div class="initiatives-track" id="initiativesTrack">
+                        <!-- Sneh Sawli Aaple Ghar -->
+                        <div class="service-card">
+                            <div class="service-card-img">
+                                <img src="{{ url_for('static', filename='images/sneh-sawli.jpeg') }}"
+                                    alt="Sneh Sawli Aaple Ghar">
+                            </div>
+                            <div class="service-card-body">
+                                <span class="service-tag tag-care" data-t="tag_elder">Elder Care</span>
+                                <h3 data-t="mission_card1_h3">Sneh Sawli Aaple Ghar</h3>
+                                <p data-t="mission_card1_p">Our flagship old age home provides a warm, dignified life
+                                    for the elderly — with 24/7 care, nutritious meals, health checkups, yoga sessions,
+                                    and a vibrant community of peers.</p>
+                            </div>
+                        </div>
+
+                        <!-- Blood Donation -->
+                        <div class="service-card">
+                            <div class="service-card-img">
+                                <img src="{{ url_for('static', filename='images/blood-donation.jpeg') }}"
+                                    alt="Blood Donation">
+                            </div>
+                            <div class="service-card-body">
+                                <span class="service-tag tag-health" data-t="tag_health">Health</span>
+                                <h3 data-t="service_blood_h3">Blood Donation Camps</h3>
+                                <p data-t="service_blood_p">We organize regular blood donation drives. Every drop you
+                                    donate helps save lives in our community.</p>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="service-card">
+                            <div class="service-card-img">
+                                <img src="{{ url_for('static', filename='images/blood-donation-1.jpg') }}"
+                                    alt="Education for Children">
+                            </div>
+                            <div class="service-card-body">
+                                <span class="service-tag tag-health" data-t="tag_edu">Education</span>
+                                <h3 data-t="mission_card2_h3">Education for Poor Children</h3>
+                                <p data-t="mission_card2_p">We fund school fees, provide books and supplies, and offer
+                                    mentoring to underprivileged children — giving them the tools to dream, learn, and
+                                    build a brighter future.</p>
+                            </div>
+                        </div>
+
+                        <!-- Murti Aamchi Kimmat Tumchi -->
+                        <div class="service-card">
+                            <div class="service-card-img">
+                                <img src="{{ url_for('static', filename='images/murti-amchi-kimmat-tumchi.jpeg') }}"
+                                    alt="Murti Aamchi Kimmat Tumchi">
+                            </div>
+                            <div class="service-card-body">
+                                <span class="service-tag tag-festival" data-t="nav_murti">🌿 Eco-Friendly</span>
+                                <h3 data-t="ganpati_h2">Murti Aamchi, Kimmat Tumchi</h3>
+                                <p data-t="ganpati_p">During Ganpati festival, we sell natural shadu (sand) murtis —
+                                    eco-friendly and biodegradable. You decide the price! All proceeds go directly to
+                                    our welfare programs.</p>
+                            </div>
+                        </div>
+
+                        <!-- Scrap Collection -->
+                        <div class="service-card">
+                            <div class="service-card-img">
+                                <img src="{{ url_for('static', filename='images/raddi.jpg') }}" alt="Scrap Collection">
+                            </div>
+                            <div class="service-card-body">
+                                <span class="service-tag tag-green" data-t="tag_env">Save Nature</span>
+                                <h3 data-t="service_scrap_h3">Scrap & Raddi Collection</h3>
+                                <p data-t="service_scrap_p">We collect old newspapers, magazines, and scrap from
+                                    apartments and housing societies. Recycling saves nature — and the funds raised
+                                    support our elders and education programs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-dots" id="initiativeDots"></div>
+                </div>
+            </section>
+
+            <!-- Stats -->
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>150+</h3>
+                        <p data-t="stat_elders">Elders Cared For</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p data-t="stat_children">Children Educated</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>2000+</h3>
+                        <p data-t="stat_murtis">Eco Murtis Sold</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p data-t="stat_societies">Societies Served</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Murti Aamchi Kimmat Tumchi CTA -->
+            <section id="ganpati" class="cta-section">
+                <span class="cta-highlight" data-t="ganpati_highlight">🪩 मूर्ती आमची, किंमत तुमची</span>
+                <h2 data-t="ganpati_h2">Murti Aamchi, Kimmat Tumchi</h2>
+                <p data-t="ganpati_p">Our eco-friendly <strong>natural shadu (sand) Ganpati murtis</strong> are
+                    beautiful and
+                    biodegradable. You decide the price — every rupee goes toward running our old age home, education
+                    programs, and community drives.</p>
+                <a href="#contact" class="btn btn-primary" data-t="ganpati_btn">Contact Us to Order</a>
+            </section>
+
+            <!-- Gallery -->
+            <section id="gallery" class="section">
+                <div class="section-header">
+                    <div class="section-label" data-t="gallery_label">Gallery</div>
+                    <h2 data-t="gallery_h2">Life at Sneh Sawli</h2>
+                    <p data-t="gallery_p">Moments of joy, service, and celebration from our community.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', filename='images/company visit.jpeg') }}" alt="Company Visit">
+                        <div class="gallery-caption">
+                            <h4 data-t="gallery_company_title">Company Visit</h4>
+                            <p data-t="gallery_company_desc">Building community connections</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', filename='images/life at snehsawli -1.jpeg') }}"
+                            alt="Festival Celebration">
+                        <div class="gallery-caption">
+                            <h4 data-t="gallery_festival_title">Festival Celebrations</h4>
+                            <p data-t="gallery_festival_desc">Joy knows no age</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', filename='images/blood-donation.jpeg') }}"
+                            alt="Blood Donation Camp">
+                        <div class="gallery-caption">
+                            <h4 data-t="gallery_blood_title">Blood Donation Camp</h4>
+                            <p data-t="gallery_blood_desc">Every drop saves a life</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section id="testimonials" class="section testimonials-section">
+                <div class="section-header">
+                    <div class="section-label" data-t="nav_testimonials">Testimonials</div>
+                    <h2 data-t="testimonial_section_title">What People Say About Us</h2>
+                    <p data-t="testimonial_section_desc">Hear from our residents, volunteers, and community members.</p>
+                </div>
+                <div class="testimonial-slider">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text" data-t="testimonial1_text">"My mother resides at Sneh Sawli
+                                Aaple Ghar. The care and
+                                dignity provided by Shri Shankar Maharaj Seva Mandal are exceptional. It truly feels
+                                like her own home."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">RS</div>
+                                <div>
+                                    <h5 data-t="testimonial1_author">Rajesh Shah</h5>
+                                    <span data-t="testimonial1_role">Family Member</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text" data-t="testimonial2_text">"I regularly participate in the blood
+                                donation camps organized
+                                by the Mandal. Their commitment to environmental conservation and community health is
+                                inspiring."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">PM</div>
+                                <div>
+                                    <h5 data-t="testimonial2_author">Priya Mehta</h5>
+                                    <span data-t="testimonial2_role">Regular Blood Donor</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text" data-t="testimonial3_text">"We brought home a Shadu Murti last
+                                year - Murti Aamchi, Kimmat
+                                Tumchi. It was a beautiful, natural idol. Supporting such an eco-friendly cause is a
+                                joy."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AJ</div>
+                                <div>
+                                    <h5 data-t="testimonial3_author">Amit Joshi</h5>
+                                    <span data-t="testimonial3_role">Ganpati Supporter</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text" data-t="testimonial4_text">"The scrap collection drive is a
+                                fantastic initiative. It's an
+                                easy way for us to contribute to environmental conservation while helping the NGO's main
+                                agenda."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">NK</div>
+                                <div>
+                                    <h5 data-t="testimonial4_author">Neha Kulkarni</h5>
+                                    <span data-t="testimonial4_role">Society Secretary</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text" data-t="testimonial5_text">"Volunteering for the education
+                                program has been life-changing.
+                                Seeing these children get the help they need thanks to the Mandal is truly
+                                heart-warming."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">VD</div>
+                                <div>
+                                    <h5 data-t="testimonial5_author">Varun Desai</h5>
+                                    <span data-t="testimonial5_role">Weekend Volunteer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-dots" id="testimonialDots"></div>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section id="contact" class="section">
+                <div class="section-header">
+                    <div class="section-label" data-t="contact_label">Get Involved</div>
+                    <h2 data-t="contact_h2">Contact Us</h2>
+                    <p data-t="contact_p">Whether you want to volunteer, donate raddi, order a Ganpati murti, or simply
+                        visit — we'd love
+                        to hear from you.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <h4 data-t="contact_addr_h4">Address</h4>
+                                <p data-t="contact_address">Dr Vaidya Laboratory, Amit Complex, C2/001, Chapekar Chowk
+                                    Flyover, Gandhi Peth,
+                                    Chinchwad Gaon, Chinchwad, Pimpri-Chinchwad, Maharashtra 411033</p>
+                                <p><a href="https://maps.app.goo.gl/ACXnZoLi6x7pjkcCA" target="_blank" class="text-link"
+                                        data-t="contact_map_link">View on Google Maps</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i data-lucide="phone"></i></div>
+                            <div>
+                                <h4 data-t="contact_phone_h4">Phone</h4>
+                                <p>+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i data-lucide="mail"></i></div>
+                            <div>
+                                <h4 data-t="contact_mail_h4">Email</h4>
+                                <p>info@ssmsmanda.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i data-lucide="newspaper"></i></div>
+                            <div>
+                                <h4 data-t="contact_raddi_h4">Raddi Collection</h4>
+                                <p data-t="contact_raddi_p">Call us to schedule a pickup from your society!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form"
+                        onsubmit="event.preventDefault(); showToast(translations[window.currentLang].toast_success);">
+                        <input type="text" placeholder="Your Name" data-t-placeholder="form_name" required>
+                        <input type="email" placeholder="Your Email" data-t-placeholder="form_email" required>
+                        <textarea rows="4"
+                            placeholder="Your Message (e.g. I'd like to donate raddi, order a Ganpati murti, or volunteer...)"
+                            data-t-placeholder="form_msg"></textarea>
+                        <button type="submit" class="btn btn-primary" style="width:100%;" data-t="form_btn">Send
+                            Message</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer>
+                <div class="footer-logo">🙏 <span data-t="ngoName">Shri Shankar Maharaj Seva Mandal, Chinchwad</span>
+                </div>
+                <p>&copy; 2026 <span data-t="ngoName">Shri Shankar Maharaj Seva Mandal, Chinchwad</span>. <span
+                        data-t="footer_copyright">Sneh Sawli
+                        Aaple Ghar • Education •
+                        Environment</span></p>
+                <p><a href="https://maps.app.goo.gl/ACXnZoLi6x7pjkcCA" target="_blank"
+                        style="color: var(--text-muted); font-size: 0.8rem; text-decoration: underline;"
+                        data-t="footer_map_link">Find us on
+                        Google Maps</a></p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Event Info Modal -->
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h2 id="modalEventTitle">Event Title</h2>
+            <p class="modal-date" id="modalEventDate"></p>
+            <p class="modal-desc" id="modalEventDescription"></p>
+            <button class="btn btn-primary" onclick="closeModal()" style="width:100%;" data-t="btn_close">Close</button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/calendar.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/language.js') }}"></script>
+    <script>
+        lucide.createIcons();
+
+        // Auto-sliding Testimonials
+        // Infinite Carousel Factory
+        function createInfiniteCarousel(trackId, dotsId, intervalTime = 4000) {
+            const track = document.getElementById(trackId);
+            if (!track) return;
+
+            let originalCards = Array.from(track.children);
+            const dotsContainer = document.getElementById(dotsId);
+            let currentIndex = 0;
+            let isTransitioning = false;
+
+            function getItemsPerView() {
+                if (window.innerWidth <= 600) return 1;
+                if (window.innerWidth <= 992 && trackId === 'initiativesTrack') return 2;
+                if (trackId === 'initiativesTrack') return 3;
+                return 1;
+            }
+
+            function setupCarousel() {
+                const perView = getItemsPerView();
+                track.innerHTML = '';
+
+                // Clone cards for infinite effect (cloning start and end)
+                const beforeClones = originalCards.slice(-perView).map(c => c.cloneNode(true));
+                const afterClones = originalCards.slice(0, perView).map(c => c.cloneNode(true));
+
+                beforeClones.forEach(c => track.appendChild(c));
+                originalCards.forEach(c => track.appendChild(c));
+                afterClones.forEach(c => track.appendChild(c));
+
+                currentIndex = perView;
+                updatePosition(false);
+                createDots();
+            }
+
+            function createDots() {
+                const perView = getItemsPerView();
+                const dotsCount = originalCards.length; // One dot per original item
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < dotsCount; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'dot' + (i === 0 ? ' active' : '');
+                    dot.addEventListener('click', () => {
+                        if (isTransitioning) return;
+                        currentIndex = i + perView;
+                        updatePosition(true);
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updatePosition(animate) {
+                const perView = getItemsPerView();
+                const cardWidth = 100 / perView;
+                track.style.transition = animate ? 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+                track.style.transform = `translateX(-${currentIndex * cardWidth}%)`;
+
+                // Update dots
+                const realIndex = (currentIndex - perView + originalCards.length) % originalCards.length;
+                const dots = dotsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === realIndex));
+            }
+
+            function next() {
+                if (isTransitioning) return;
+                currentIndex++;
+                updatePosition(true);
+                checkBoundaries();
+            }
+
+            function checkBoundaries() {
+                isTransitioning = true;
+                const perView = getItemsPerView();
+
+                track.addEventListener('transitionend', function handler() {
+                    isTransitioning = false;
+                    const totalCards = track.children.length;
+
+                    if (currentIndex >= originalCards.length + perView) {
+                        currentIndex = perView;
+                        updatePosition(false);
+                    } else if (currentIndex < perView) {
+                        currentIndex = originalCards.length + perView - 1;
+                        updatePosition(false);
+                    }
+                    track.removeEventListener('transitionend', handler);
+                });
+            }
+
+            let interval = setInterval(next, intervalTime);
+
+            track.addEventListener('mouseenter', () => clearInterval(interval));
+            track.addEventListener('mouseleave', () => interval = setInterval(next, intervalTime));
+
+            window.addEventListener('resize', () => {
+                setupCarousel();
+            });
+
+            setupCarousel();
+        }
+
+        // Initialize
+        createInfiniteCarousel('testimonialTrack', 'testimonialDots', 5000);
+        createInfiniteCarousel('initiativesTrack', 'initiativeDots', 4000);
+    </script>
+</body>
+
+</html>

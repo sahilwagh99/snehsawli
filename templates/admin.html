@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Sneh Sawli</title>
+    <meta name="description" content="Manage community events for the Sneh Sawli NGO website.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon"
+                style="background: linear-gradient(135deg, var(--secondary), var(--secondary-light));">⚙</div>
+            <span class="logo-text" style="color: var(--secondary);">Admin Panel</span>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}"><i data-lucide="arrow-left" style="width:16px; height:16px;"></i>
+                        Back to
+                        Site</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-page">
+        <div class="admin-grid">
+
+            <!-- Add Event Card -->
+            <div class="admin-card">
+                <h2>➕ Add New Event</h2>
+                <form id="eventForm">
+                    <div class="form-group">
+                        <label for="eventDate">Event Date</label>
+                        <input type="date" id="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventTitle">Event Name</label>
+                        <input type="text" id="eventTitle" placeholder="e.g. Birthday Celebration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" rows="3" placeholder="Describe the event..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;">
+                        Add Event
+                    </button>
+                </form>
+            </div>
+
+            <!-- Events List Card -->
+            <div class="admin-card">
+                <h2>📋 Current Events</h2>
+                <div id="noEventsMsg" class="no-events" style="display:none;">No events yet. Add one above!</div>
+                <table class="event-table" id="eventTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Event Name</th>
+                            <th>Description</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminEventList">
+                        <!-- Rendered by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast"></div>
+
+    <script>
+        const form = document.getElementById('eventForm');
+        const tbody = document.getElementById('adminEventList');
+        const table = document.getElementById('eventTable');
+        const noMsg = document.getElementById('noEventsMsg');
+
+        function getEvents() {
+            return JSON.parse(localStorage.getItem('ngo_events')) || [];
+        }
+
+        function saveEvents(events) {
+            localStorage.setItem('ngo_events', JSON.stringify(events));
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        function renderList() {
+            const events = getEvents().sort((a, b) => a.date.localeCompare(b.date));
+            tbody.innerHTML = '';
+
+            if (events.length === 0) {
+                table.style.display = 'none';
+                noMsg.style.display = 'block';
+                return;
+            }
+
+            table.style.display = '';
+            noMsg.style.display = 'none';
+
+            events.forEach((evt, i) => {
+                const tr = document.createElement('tr');
+                const d = new Date(evt.date + 'T00:00:00');
+                const dateStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                tr.innerHTML = `
+                    <td style="white-space:nowrap; font-weight:600; color:var(--primary);">${dateStr}</td>
+                    <td><strong>${evt.title}</strong></td>
+                    <td style="color:var(--text-muted); max-width:250px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${evt.description || '—'}</td>
+                    <td>
+                        <button class="delete-btn" onclick="deleteEvent(${i})" title="Delete event">
+                            <i data-lucide="trash-2" style="width:16px; height:16px;"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            lucide.createIcons();
+        }
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const evt = {
+                date: document.getElementById('eventDate').value,
+                title: document.getElementById('eventTitle').value,
+                description: document.getElementById('eventDescription').value
+            };
+            const events = getEvents();
+            events.push(evt);
+            saveEvents(events);
+            form.reset();
+            renderList();
+            showToast('✅ Event added successfully!');
+        });
+
+        window.deleteEvent = (index) => {
+            if (!confirm('Delete this event?')) return;
+            const events = getEvents();
+            events.splice(index, 1);
+            saveEvents(events);
+            renderList();
+            showToast('🗑️ Event removed.');
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderList();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
