@@ -1,0 +1,8 @@
+# Netlify CLI local state
+.netlify/
+node_modules/
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store

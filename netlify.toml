@@ -1,0 +1,22 @@
+# Netlify configuration. The site is plain static files with no build step,
+# so Netlify publishes this folder as it is.
+
+[build]
+  publish = "."
+
+# Basic security headers for every page.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Photos and icons rarely change, so browsers may cache them for a week.
+# CSS, JS and HTML keep Netlify's default (always revalidate), so edits to
+# data.js or the pages show up immediately after a deploy.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

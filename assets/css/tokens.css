@@ -1,0 +1,80 @@
+/*
+  Design tokens for the whole site.
+
+  The EmergeFlow Design System was not available in this workspace (no
+  design-system artifact, no local token files), so these values are drawn
+  from the Mandal's own emblem: the saffron ring, the banyan-leaf green and
+  the marigold flowers. Every colour, font, radius and shadow used by
+  style.css comes from here, so replacing this file re-skins the site.
+*/
+:root {
+  /* Saffron: the emblem ring. 600 is the AA-safe shade for white text. */
+  --saffron-50: #FFF6EE;
+  --saffron-100: #FFE8D3;
+  --saffron-200: #FDCB9F;
+  --saffron-400: #F58A3C;
+  --saffron-500: #EE6A12;
+  --saffron-600: #C2500A;
+  --saffron-700: #9A3F08;
+
+  /* Kumkum maroon: headings and deep accents */
+  --maroon-700: #7A1F12;
+  --maroon-900: #3B140B;
+
+  /* Banyan green and marigold */
+  --leaf-50: #EEF5EC;
+  --leaf-500: #3F7F47;
+  --leaf-700: #2B5A33;
+  --marigold-300: #FFD36B;
+  --marigold-500: #F5B42A;
+
+  /* Text, grounds, hairlines */
+  --ink: #2A1A12;
+  --ink-2: #5E4A3E;
+  --ink-3: #8A7567;
+  --paper: #FFFBF6;
+  --paper-2: #FBF1E6;
+  --surface: #FFFFFF;
+  --line: #EFDFCF;
+  --line-2: #E3CDB8;
+  --night: #241109;
+  --night-2: #331A0F;
+  --on-night: #EAD9C8;
+  --on-night-2: #C9B29E;
+
+  /* Event categories (all pass AA as text on white) */
+  --cat-blood: #C62828;
+  --cat-raddi: #2B5A33;
+  --cat-festival: #C2500A;
+  --cat-care: #7A1F12;
+  --cat-recognition: #8A6800;
+
+  --whatsapp: #128C4A;
+
+  /* Type */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Mukta", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: clamp(1.5rem, 1.2rem + 1vw, 1.875rem);
+  --fs-2xl: clamp(1.875rem, 1.35rem + 1.9vw, 2.75rem);
+  --fs-3xl: clamp(2.25rem, 1.45rem + 3.2vw, 4rem);
+
+  /* Shape and depth */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-xl: 32px;
+  --r-full: 999px;
+  --sh-1: 0 1px 2px rgba(59, 20, 11, 0.06), 0 2px 8px rgba(59, 20, 11, 0.05);
+  --sh-2: 0 4px 12px rgba(59, 20, 11, 0.08), 0 18px 44px rgba(59, 20, 11, 0.10);
+  --sh-3: 0 24px 64px rgba(20, 9, 4, 0.35);
+
+  /* Layout and motion */
+  --container: 1200px;
+  --gutter: clamp(16px, 4vw, 32px);
+  --header-h: 76px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
