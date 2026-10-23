@@ -110,7 +110,7 @@ svg.i {
 .site-header.is-scrolled { box-shadow: var(--sh-1); border-color: var(--line); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: var(--header-h); }
 .brand { display: flex; align-items: center; gap: 12px; min-width: 0; text-decoration: none; color: var(--maroon-900); }
-.brand img { width: 54px; height: 54px; flex: none; }
+.brand img { width: 64px; height: 64px; flex: none; }
 .brand-name { display: block; font-family: var(--font-display); font-weight: 600; font-size: 1.06rem; line-height: 1.15; }
 .brand-sub { display: block; font-size: var(--fs-xs); color: var(--ink-2); line-height: 1.35; }
 .brand:hover { color: var(--maroon-900); }
@@ -143,7 +143,7 @@ svg.i {
   .nav .nav-cta { margin: 8px 0 0; justify-content: center; text-align: center; }
 }
 @media (max-width: 440px) {
-  .brand img { width: 46px; height: 46px; }
+  .brand img { width: 52px; height: 52px; }
   .brand-name { font-size: 0.98rem; }
   .brand-sub { display: none; }
 }

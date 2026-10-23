@@ -75,6 +75,6 @@
   /* Layout and motion */
   --container: 1200px;
   --gutter: clamp(16px, 4vw, 32px);
-  --header-h: 76px;
+  --header-h: 84px;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
